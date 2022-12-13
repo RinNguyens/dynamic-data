@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-
+import { NgxEchartsModule } from 'ngx-echarts';
 registerLocaleData(en);
 
 @NgModule({
@@ -19,12 +19,17 @@ registerLocaleData(en);
     AppComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
     FormsModule,
     HttpClientModule,
     SharedModule,
-    BrowserAnimationsModule
+
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
